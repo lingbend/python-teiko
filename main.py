@@ -114,8 +114,8 @@ if __name__ == "__main__":
     tr1ResponderData = filterByKeyPairs(tr1Data, {"response":"y"})
     tr1NonResponderData = filterByKeyPairs(tr1Data, {"response":"n"})
 
-    processedResponderData = getBoxPlotData(CELL_TYPES, tr1ResponderData, (lambda point, field: int(point._data.get(field)) / getTotal(point)))
-    processedNonResponderData = getBoxPlotData(CELL_TYPES, tr1NonResponderData, (lambda point, field: int(point._data.get(field)) / getTotal(point)))
+    processedResponderData = getBoxPlotData(CELL_TYPES, tr1ResponderData, (lambda point, field: (int(point._data.get(field)) / getTotal(point))*100))
+    processedNonResponderData = getBoxPlotData(CELL_TYPES, tr1NonResponderData, (lambda point, field: (int(point._data.get(field)) / getTotal(point))*100))
 
     plotArrays = [None] * len(processedNonResponderData * 2)
     plotArrays[::2] = processedResponderData
@@ -123,7 +123,7 @@ if __name__ == "__main__":
 
     mat.boxplot(plotArrays, tick_labels=["R b", "Non-R b", "R cd8 t", "Non-R cd8 t", "R cd4 t", "Non-R cd4 t", "R nk", "Non-R nk", "R monocyte", "Non-R monocyte"])
     mat.ylabel("Percent of Cells Present in Cells Measured")
-    mat.xlabel("Cell Types, Separated by Response to Treatment")
+    mat.xlabel("Cell Types, Separated by Response to Melanoma Treatment")
     mat.show()
 
     closeFile(dataFile)
