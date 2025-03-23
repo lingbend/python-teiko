@@ -43,19 +43,16 @@ def getPercentages(data, keepKeys, addKeys, percentKeys):
         percentData.extend(sampleData)
     return newKeys, percentData
 
-def filterByKeyPair(data, key, value):
+def filterByKeyPairs(data, pairs):
     filteredData = []
-    for dataLine in data:
-        if (dataLine.get(key) == value):
-            filteredData.append(dataLine)
-    return dataLine
-
-            
-
-        
-
-
-    
+    dataSet = data.copy()
+    for key, value in pairs.items():
+        for dataLine in dataSet:
+            if (dataLine._data.get(key) == value):
+                filteredData.append(dataLine)
+        dataSet = filteredData.copy()
+        filteredData = []
+    return dataSet
 
 # assumes data processed and sorted
 def packToCSV(data, keys):
@@ -100,6 +97,11 @@ if __name__ == "__main__":
     newKeys, newData = getPercentages(data, ["sample"], ["total_count", "population", "count", "percentage"],
                                       ["b_cell", "cd8_t_cell", "cd4_t_cell", "nk_cell", "monocyte"])
     packToCSV(newData, newKeys)
+
+    tr1Data = filterByKeyPairs(data, {"condition":"melanoma", "treatment":"tr1", "sample_type":"PBMC"})
+    tr1ResponderData = filterByKeyPairs(tr1Data, {"response":"y"})
+    tr1NonResponderData = filterByKeyPairs(tr1Data, {"response":"n"})
+    
     # print(len(data))
     # for i in data:
     #     print(i)
