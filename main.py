@@ -122,6 +122,8 @@ if __name__ == "__main__":
     plotArrays[1::2] = processedNonResponderData
 
     mat.boxplot(plotArrays, tick_labels=["R b", "Non-R b", "R cd8 t", "Non-R cd8 t", "R cd4 t", "Non-R cd4 t", "R nk", "Non-R nk", "R monocyte", "Non-R monocyte"])
+    mat.ylabel("Percent of Cells Present in Cells Measured")
+    mat.xlabel("Cell Types, Separated by Response to Treatment")
     mat.show()
 
     closeFile(dataFile)
