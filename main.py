@@ -1,5 +1,7 @@
+#!/usr/bin/env python3
+
+
 import matplotlib.pyplot as mat
-import numpy as np
 
 
 INPUT_FILE_NAME = "cell-count.csv"
@@ -21,7 +23,6 @@ class dataLine:
             selfStr += i + ": " + j + " | \n"
         return selfStr
     
-    # Test Output
 def getPercentages(data, keepKeys, addKeys, percentKeys):
     percentData = []
     newKeys = keepKeys.copy() + addKeys

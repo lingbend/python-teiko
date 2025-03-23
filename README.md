@@ -1,5 +1,7 @@
 # Python
 
+Please run the main function to reproduce the results of this project. Note that this project requires matplotlib as a dependency.
+
 ## Question 1
 Please see Question1output.csv.
 
