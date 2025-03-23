@@ -1,13 +1,14 @@
 # python-teiko
 
-
+## Question 1
+Please see Question1output.csv.
 
 ## Question 2
 
-### a
+### a.
 ![Boxplot](/Boxplot.png)
 
-### b
+### b.
 Based on this limited sample size, I would not be very confident in this data. However, based on the available data, all of the cell groups differ significantly except for the cd8 t-cells for the following reasons:
 
 The 100% of the responsive b-cells are present in greater percentages than over 50% of the non-responsive b-cells.
