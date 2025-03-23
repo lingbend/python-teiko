@@ -1,4 +1,5 @@
-
+import matplotlib.pyplot as mat
+import numpy as np
 
 
 INPUT_FILE_NAME = "cell-count.csv"
@@ -41,6 +42,14 @@ def getPercentages(data, keepKeys, addKeys, percentKeys):
             line._data[addKeys[3]] = line._data[addKeys[2]] / total
         percentData.extend(sampleData)
     return newKeys, percentData
+
+def filterByKeyPair(data, key, value):
+    filteredData = []
+    for dataLine in data:
+        if (dataLine.get(key) == value):
+            filteredData.append(dataLine)
+    return dataLine
+
             
 
         
